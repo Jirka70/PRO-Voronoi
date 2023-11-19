@@ -14,7 +14,7 @@ public final class PointGenerator {
         Point[] randomPoints = new Point[numberOfPoints];
 
         for (int i = 0; i < numberOfPoints; i++) {
-            randomPoints[i] = new Point(i,random.nextDouble() * windowWidth, random.nextDouble() * windowHeight);
+            randomPoints[i] = new Point(random.nextDouble() * windowWidth, random.nextDouble() * windowHeight);
         }
 
         return randomPoints;

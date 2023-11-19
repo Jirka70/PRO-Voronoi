@@ -1,21 +1,22 @@
 package com.example.provoronoi.shape;
 
 public class Triangle {
-    public final int point1Id;
-    public final int point2Id;
-    public final int point3Id;
-    public Triangle(int point1Id, int point2Id, int point3Id) {
-        this.point1Id = point1Id;
-        this.point2Id = point2Id;
-        this.point3Id = point3Id;
+    public final Point point1;
+    public final Point point2;
+    public final Point point3;
+
+    public Triangle(Point point1, Point point2, Point point3) {
+        this.point1 = point1;
+        this.point2 = point2;
+        this.point3 = point3;
     }
 
     @Override
     public String toString() {
         return "Triangle{" +
-                "point1Id=" + point1Id + ", " +
-                "point2Id=" + point2Id + ", " +
-                "point3Id=" + point3Id +
+                "point1=" + point1 + ", " +
+                "point2=" + point2 + ", " +
+                "point3=" + point3 +
                 '}';
     }
 }
