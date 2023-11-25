@@ -16,6 +16,6 @@ public class VoronoiPane extends Pane {
 
     private void drawPoints(Point[] points) {
         Arrays.stream(points)
-                .forEach(item -> getChildren().add(new Circle(item.x,item.y,radius, Color.BLACK)));
+                .forEach(item -> getChildren().add(new Circle(item.x, item.y, radius, Color.BLACK)));
     }
 }

@@ -1,4 +1,4 @@
-package com.example.provoronoi;
+package com.example.provoronoi.util;
 
 import com.example.provoronoi.shape.Point;
 import java.util.Random;
