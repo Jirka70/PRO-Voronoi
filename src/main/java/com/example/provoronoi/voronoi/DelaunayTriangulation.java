@@ -8,11 +8,12 @@ import java.util.*;
 /** Computes Delaunay triangulation with Bowyer-Watson incremental algorithm */
 public class DelaunayTriangulation {
     private final DelaunayTriangle superDelaunayTriangle;
+    private static final double BOUND = 1E6;
 
     /** Creates a super triangle with vertices defined according to screen width and height */
     public DelaunayTriangulation() {
-        superDelaunayTriangle = new DelaunayTriangle(new Point(Integer.MAX_VALUE/2.0,Integer.MIN_VALUE),
-                new Point(Integer.MIN_VALUE,Integer.MAX_VALUE), new Point(Integer.MAX_VALUE,Integer.MAX_VALUE));
+        superDelaunayTriangle = new DelaunayTriangle(new Point(BOUND/2.0,-BOUND),
+                new Point(-BOUND,BOUND), new Point(BOUND,BOUND));
     }
 
     public Set<DelaunayTriangle> createTriangulation(Point[] points) {
@@ -22,21 +23,13 @@ public class DelaunayTriangulation {
 
         Set<DelaunayTriangle> delaunayTriangles = new HashSet<>();
         delaunayTriangles.add(superDelaunayTriangle);
-        int i = 0;
         for (Point point : points) {
             Set<DelaunayTriangle> badDelaunayTriangles = getBadTriangles(point, delaunayTriangles);
             Set<Edge> polygon = getPolygonOfBadTriangles(badDelaunayTriangles);
             removeBadTrianglesFromTriangulation(delaunayTriangles,badDelaunayTriangles);
             triangulate(point,delaunayTriangles,polygon);
         }
-
-        delaunayTriangles.removeIf(this::containsSuperTriangleVertex);
         return delaunayTriangles;
-    }
-
-    private boolean containsSuperTriangleVertex(DelaunayTriangle triangle) {
-        return triangle.hasVertex(superDelaunayTriangle.point1) || triangle.hasVertex(superDelaunayTriangle.point2)
-                || triangle.hasVertex(superDelaunayTriangle.point3);
     }
 
     private void triangulate(Point newPoint, Set<DelaunayTriangle> delaunayTriangles, Set<Edge> polygon) {
@@ -82,7 +75,6 @@ public class DelaunayTriangulation {
         return false;
     }
 
-
     private Set<DelaunayTriangle> getBadTriangles(Point point, Set<DelaunayTriangle> delaunayTriangles) {
         Set<DelaunayTriangle> badDelaunayTriangles = new HashSet<>();
         for (DelaunayTriangle delaunayTriangle : delaunayTriangles) {
@@ -90,7 +82,6 @@ public class DelaunayTriangulation {
                 badDelaunayTriangles.add(delaunayTriangle);
             }
         }
-
         return badDelaunayTriangles;
     }
 }

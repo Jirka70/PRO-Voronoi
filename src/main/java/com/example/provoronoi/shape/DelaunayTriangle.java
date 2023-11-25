@@ -22,10 +22,6 @@ public class DelaunayTriangle {
         circumcircleRadius = calculateEuclideanDistance(point1,circumcircleCenter);
     }
 
-    public boolean isAdjacent(DelaunayTriangle triangle) {
-        return false;
-    }
-
     public boolean isInCircumcircle(Point point) {
         double circumcircleRadius = calculateEuclideanDistance(point1,circumcircleCenter);
         double pointDistanceFromCircumcircleCenter = calculateEuclideanDistance(circumcircleCenter,point);
