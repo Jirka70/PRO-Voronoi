@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import java.util.Set;
 
 public class VoronoiApp extends Application {
-    private static final int INITIAL_NUMBER_OF_POINTS = 420;
+    private static final int INITIAL_NUMBER_OF_POINTS = 3000;
     private static final double VORONOI_PANE_WIDTH = 3000;
     private static final double VORONOI_PANE_HEIGHT = 2000;
     @Override
