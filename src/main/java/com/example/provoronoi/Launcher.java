@@ -1,5 +1,4 @@
 package com.example.provoronoi;
-import com.sun.javafx.runtime.VersionInfo;
 
 import javafx.application.Application;
 
