@@ -32,6 +32,7 @@ public class DelaunayTriangle {
      * @return true if triangle has point as one of its 3 vertices
      * */
     public boolean hasVertex(Point point) {
+        // svetr spych
         return point1.equals(point) || point2.equals(point) || point3.equals(point);
     }
 
