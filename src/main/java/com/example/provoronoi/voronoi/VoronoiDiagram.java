@@ -13,7 +13,6 @@ public class VoronoiDiagram {
     public Set<Edge> createVoronoiDiagram(Set<DelaunayTriangle> triangulation) {
         Map<Edge, List<DelaunayTriangle>> adjacencyTrianglesMap = createAdjacencyTriangleMap(triangulation);
         Set<Edge> diagram = new HashSet<>();
-        // arbeit macht frei
 
         for (List<DelaunayTriangle> trianglesWithEdge : adjacencyTrianglesMap.values()) {
             boolean isEdgeSharedByTwoTriangles = trianglesWithEdge.size() == 2;
